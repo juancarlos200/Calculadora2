@@ -1,4 +1,4 @@
-package src.Stack;
+package Stack;
 
 public class arrayList {
     

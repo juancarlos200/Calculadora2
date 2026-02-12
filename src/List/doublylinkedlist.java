@@ -1,4 +1,4 @@
-package src.List;
+package List;
 
 public class doublylinkedlist {
     
