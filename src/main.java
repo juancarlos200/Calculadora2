@@ -1,32 +1,34 @@
 import java.util.Scanner;
-import java.util.Stack;
+import factory.StackFactory;
+import Stack.stack;
 import service.InfixToPostfixConverter;
 import service.PostfixEvaluator;
+import util.FileReaderUtil;
 
-public class main {
+public class Main {
 
-    public static main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {
 
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Seleccione implementación:");
+        System.out.println("Seleccione implementación del Stack:");
         System.out.println("1. ArrayList");
         System.out.println("2. Vector");
         System.out.println("3. Lista");
 
-        int option = sc.nextInt();
+        int option = scanner.nextInt();
         int listOption = 0;
 
         if (option == 3) {
             System.out.println("1. Simple");
             System.out.println("2. Doble");
-            listOption = sc.nextInt();
+            listOption = scanner.nextInt();
         }
 
-        Stack<Character> stackChar =
+        stack<Character> stackChar =
                 StackFactory.createStack(option, listOption);
 
-        Stack<Double> stackDouble =
+        stack<Double> stackDouble =
                 StackFactory.createStack(option, listOption);
 
         String expression =
@@ -44,7 +46,9 @@ public class main {
         double result =
                 evaluator.evaluate(postfix, stackDouble);
 
-        System.out.println("Postfix: " + postfix);
+        System.out.println("\nPostfix: " + postfix);
         System.out.println("Resultado: " + result);
+
+        scanner.close();
     }
 }
